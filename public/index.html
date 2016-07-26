@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pure PHP!</title>
+    <script type="text/javascript" src="app.js"></script>
+    <style>
+        html {
+            font-size: 12px;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #eee;
+            margin: 0;
+            padding: 0;
+        }
+
+        #login, #chat {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        #login > div {
+            min-width: 300px;
+            box-sizing: border-box;
+            border: 1px solid #999;
+            box-shadow: 0 0 8px #aaa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        #login > div > div {
+            display: flex;
+        }
+        #login > div > div label {
+            width: 40%;
+        }
+        #login > div > div input {
+            width: 60%;
+        }
+        #login > div > div button {
+            margin-left: auto;
+            width: 50%;
+        }
+
+        #chat {
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+            justify-content: space-between;
+            align-items: stretch;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+        #chat .chat {
+            width: 80%;
+            border: 1px solid #aaa;
+            background-color: #fff;
+            height: 95%;
+        }
+        #chat .users {
+            width: 18%;
+            overflow: hidden;
+            border: 1px solid #aaa;
+            background-color: #fff;
+        }
+        #chat .message {
+            width: 80%;
+            /*height: 1%;*/
+            margin-top: 3px;
+            border: 1px solid #aaa;
+            background-color: #fff;
+        }
+
+
+        body.authenticated #login {
+            opacity: 0;
+            pointer-events: none;
+        }
+        body.authenticated #chat {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+<form action="" id="login">
+    <div>
+        <div>
+            <label for="loginUser">User:</label>
+            <input type="text" id="loginUser" placeholder="User">
+        </div>
+        <div>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" placeholder="Password">
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </div>
+</form>
+<form action="" id="chat">
+    <div class="chat"></div>
+    <div class="users"></div>
+    <div class="message">
+        <label for="chatMessage">Message</label>
+        <input type="text" id="chatMessage">
+    </div>
+</form>
+</body>
+</html>
